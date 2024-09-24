@@ -8,13 +8,13 @@ url = 'https://www.saferproducts.gov/RestWebServices/'
 query = 'Recall?format=json&Manufacturer=Beds'
 response = urllib.request.urlopen(url+query)
 response_bytes = response.read()
-data2 = json.loads(response_bytes) 
+data22 = json.loads(response_bytes) 
 response.close()
 
-df2 = pd.DataFrame.from_dict(data2)
-df2.head()
+df = pd.DataFrame.from_dict(data2)
+df.head()
 
-temp1 = df2['RemedyOptions']
+temp1 = df['RemedyOptions']
 clean_values1 = []
 for i in range(len(temp1)):
     if len(temp1[i])>0:
@@ -24,7 +24,7 @@ for i in range(len(temp1)):
         clean_values1.append(values1)
     else:
         clean_values1.append('')
-df2['remedy'] = clean_values1
-remedy_counts = df2['remedy'].value_counts()
+df['remedy'] = clean_values1
+remedy_counts = df['remedy'].value_counts()
 st.title('Remedy Statistics')
 st.write(remedy_counts)
