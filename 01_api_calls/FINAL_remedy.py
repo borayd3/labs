@@ -19,13 +19,13 @@ for i in range(len(temp)):
         values = []
         for j in range(len(temp[i])):
             values.append(temp[i][j]['Name'] )
-        cleaned123.append(values)
+        cleared123.append(values)
     else:
-        cleaned123.append('')
+        cleared123.append('')
 #df5['importers'] = cleared123 
 #df5['remedy'] = cleaned123
 cleared12 = df5['Importers'].value_counts()
 print(cleared12)
 #print(cleaned2)
 st.title("sample")
-st.write(df5['Importers'].value_counts())
+st.write(cleared12)
